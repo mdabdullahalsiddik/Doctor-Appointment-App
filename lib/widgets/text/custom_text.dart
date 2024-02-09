@@ -9,6 +9,7 @@ class CustomText extends StatelessWidget {
   final FontWeight? fontWeight;
   final double? fontSize;
   final int? maxLines;
+
   const CustomText({
     super.key,
     required this.text,
@@ -16,7 +17,8 @@ class CustomText extends StatelessWidget {
     this.overflow,
     this.color,
     this.fontWeight,
-    this.fontSize, this.maxLines,
+    this.fontSize,
+    this.maxLines,
   });
 
   @override
@@ -25,11 +27,11 @@ class CustomText extends StatelessWidget {
       text ?? "",
       textAlign: textAlign ?? TextAlign.start,
       overflow: overflow ?? TextOverflow.ellipsis,
-      maxLines:maxLines?? 1,
+      maxLines: maxLines ?? 1,
       style: TextStyle(
         color: color ?? AllColors.blackColor,
         fontWeight: fontWeight ?? FontWeight.normal,
-        fontSize: fontSize ?? 14,
+        fontSize: MediaQuery.of(context).textScaler.scale(fontSize ?? 14),
       ),
     );
   }

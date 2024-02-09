@@ -12,11 +12,11 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     return Container(
-      height: size.height * .50,
+      height: size.height * .350,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(15),
-          bottomRight: Radius.circular(15),
+          bottomLeft: Radius.circular(50),
+          bottomRight: Radius.circular(50),
         ),
         gradient: LinearGradient(
           colors: [
@@ -27,14 +27,15 @@ class CustomAppBar extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 20,
+          horizontal: 25,
+          vertical: 26,
         ),
         child: Column(
           children: [
             ListTile(
               leading: SizedBox(
-                height: 50,
-                width: 50,
+                height: size.height * 0.054,
+                width: size.width * 0.054,
                 child: Image.asset("assets/images/logo.png"),
               ),
               title: Column(
@@ -43,7 +44,7 @@ class CustomAppBar extends StatelessWidget {
                 children: [
                   CustomText(
                     text: 'Current Location',
-                    fontSize: 20,
+                    fontSize: 12,
                     color: AllColors.blackColor.withOpacity(0.5),
                   ),
                   const Row(
@@ -56,7 +57,6 @@ class CustomAppBar extends StatelessWidget {
                       CustomText(
                         text: 'Sylhet, BD',
                         color: AllColors.blackColor,
-                        fontSize: 30,
                         fontWeight: FontWeight.bold,
                         overflow: TextOverflow.clip,
                       ),
@@ -76,19 +76,22 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
             CustomText(
-              maxLines: 20,
+              overflow: TextOverflow.ellipsis,
+              maxLines: size.height > 1000 ? 3 : 6,
               text:
                   "স্বদেশ সাতক্ষীরার একটি এনজিওI স্বদেশ তার গ্রাহকদের একটি সম্পূর্ণ স্বাস্থ্য সুরক্ষা পরিষেবা দেওয়ার জন্য মাই স্মার্ট হেলথকেয়ার লিমিটেডের সাথে চুক্তি স্বাক্ষর করেছে। স্বদেশ এর গ্রাহকরা 'স্মার্ট ক্লিনিক' চিহ্নযুক্ত হাসপাতালে নগদের মাধ্যমে আউটডোর বিল পেমেন্ট করলে বিনামুল্যে অথবা ইএমআই (মাসিক কিস্তিতে) সিস্টেমে পাবেন একটি স্মার্ট স্বাস্থ্য কার্ড যা দিয়ে পরবর্তী এক বছর উক্ত হাসপাতালে বিভিন্ন রকম স্বাস্থ্য পরিষেবা উপভোগ করতে পারবেন।",
               color: AllColors.blackColor.withOpacity(
                 0.7,
               ),
               textAlign: TextAlign.center,
-              fontSize: 18,
+            ),
+            SizedBox(
+              height: size.height * 0.015,
             ),
             CustomBottom(
               onTap: onTap,
               text: "More",
-            )
+            ),
           ],
         ),
       ),

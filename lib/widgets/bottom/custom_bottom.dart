@@ -7,10 +7,16 @@ class CustomBottom extends StatelessWidget {
     super.key,
     required this.onTap,
     this.text,
+    this.fontWeight,
+    this.fontSize,
+    this.color,
   });
 
   final void Function()? onTap;
   final String? text;
+  final FontWeight? fontWeight;
+  final double? fontSize;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +24,19 @@ class CustomBottom extends StatelessWidget {
     return InkWell(
       onTap: onTap ?? () {},
       child: SizedBox(
-        width: size.width * .60,
+        height: size.height * 0.05,
+        width: size.width * 217,
         child: Card(
           color: AllColors.blueColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(66.0),
           ),
           child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: CustomText(
-                text: text ?? "",
-                color: AllColors.whiteColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
+            child: CustomText(
+              text: text ?? "",
+              color: color ?? AllColors.whiteColor,
+              fontWeight: fontWeight ?? FontWeight.w500,
+              fontSize: MediaQuery.of(context).textScaler.scale(fontSize ?? 14),
             ),
           ),
         ),
